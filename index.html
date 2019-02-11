@@ -1,0 +1,173 @@
+<!-- 
+  If you have seen Peter's sanity, please report it to campus safety 
+  as soon as possible.
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8" />
+      <title>Humanity.exe</title>
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <!-- <link rel="stylesheet" href="css/humanity.css" type='text/css'/> -->
+      <link rel="stylesheet" href="css/player.css" type='text/css'/>
+      <link rel="stylesheet" href="css/host.css" type='text/css'/>
+      <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+      <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="preload" as="video" href="images/titleSequence.mp4">
+
+      <script src="../pixi/pixi.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+      </style>
+       
+  </head>
+
+  <body>
+
+    <!-- This section is visible on the hosting device (desktop/laptop) -->
+    <section id="host" style="display:none">
+        
+        <div class="container">
+            <!-- PKM - opening menu-->
+            <div id="menu">
+            <!-- Game title and play button-->
+         
+            
+            <img id="teamlogo" src="images/teamlogosmall.png">
+                <nav>
+                    <ul>
+                        <li><a href="#" id="play">Play Demo</a></li>
+                    </ul>
+                </nav>
+                
+                <img id = "gamelogo" src ="images/simplegamelogosmall.png">
+                
+            </div>
+            
+            <!-- 'Waiting for Players' screen -->
+            <!-- - will have the room code and will append player names-->
+
+			<audio loop id="mainTheme" src="audio/mainTheme.mp3"> type=audio/mpeg"</audio loop>
+      <audio id="newPlayer" src="audio/newPlayer.mp3"> type=audio/mpeg"</audio>
+	<audio loop id="gameTheme" src="audio/gameTheme.mp3"> type=audio/mpeg"</audio>
+            
+            <div id="getCode"  style="display:none">
+              
+              <div class="connectInstructions"> <!-- changed from instructions-->
+                  
+                <div id="folderImages">
+                <img id="website" src="images/instruct.png">
+                <img id="website" src="images/link.png">
+                <img id="website" src="images/qrcode.png">
+                </div>
+
+                <div id="startGame" style="display:none"> <!-- added this-->
+                  <h1>Everyone's in! </h1>
+				
+                  <button id='startGameButton'>Start Game</button>
+                </div>
+
+                <div class = "column">
+                  <div id="playerListLeft">
+                    <p> </p>
+                  </div>
+                </div>
+
+                <div class = "column">
+                  <p>Now enter the following code</p>
+                  <div id="code"></div>
+                </div>
+
+                <div class = "column">
+                  <div id="playerListRight">
+                    <p> </p>
+                  </div>
+                </div>     
+              </div>
+
+              
+
+            </div>
+
+        </div>
+
+        <!-- this will appear before each mini game -->
+        <div id="gameInstructions"></div>
+    </section>
+
+    <!-- This section contains the canvas and is visible when the game starts -->
+    <section id="game"  style="display:none">
+    </section>
+
+		<div class = "video" style="display:none">
+			<video id = "introVideo" preload="auto" src="images/titleSequence.mp4"> type="video/mp4"</video>
+		</div>
+
+    <!-- This section is visible on the mobile device -->
+    <section id="player" style="display:none">
+        
+        <div class="rotateDevice">
+          <div class="rotate"></div>
+        </div>
+        <!-- This div shows the game code input -->
+        <div id="connect" style="display:none">
+          <form id="connectForm">
+            <input type="text" name="userName" id="userName" 
+              placeholder="Enter your name"/>
+            <input type="text" name="roomId" id="roomId"
+              placeholder="Enter room code"/>
+            <input type="submit" value="Connect" />
+          </form>
+        </div>
+        <!-- This div shows the controller -->
+        <div id="controller"  style="display:none">
+          
+          <img id="backgroundImage" src="images/mobile/mobileBackground.png">
+          <div id="controllerName"></div>
+          <div id="joystickPad">
+            <div id="joystick">
+              <img src="images/mobile/sprites/joystick.png" alt='icon'>
+
+              
+              <div id="userTouch" style="display:none">
+                <img src="images/mobile/sprites/fingercircle.png">
+              </div>
+            </div>
+            
+              
+          </div>
+          <div id="button">
+            <div id="button1">
+            <img id="buttonReady" src="images/mobile/sprites/button.png">
+            <img id="buttonPressed" src="images/mobile/sprites/buttonclicked.png"
+              style="display:none">
+            </div>
+          </div>
+          <!-- <div id="button2"></div> -->
+          <!-- <div id="status"></div> -->
+        </div>
+    </section>
+
+    
+    <!-- Other js files go here-->
+    <script type="text/javascript" src="js/humanity.js"></script>
+    <script type="text/javascript" src="js/host.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+  <!-- End of js files -->
+    
+    <!-- Game Files -->
+    <script type="text/javascript" src="js/games/testSprites.js"></script>
+
+
+    
+
+  </body>
+</html>

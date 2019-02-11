@@ -1,0 +1,21 @@
+{	
+    "name":             "Gamespace",
+    "description":      " A multi-user multi-room ratchet server ",
+    "homepage":         "https://greenvilledm.com/pkme",
+
+    "authors": [
+        {
+            "name":         "pbinder",
+            "email":        "peter.binder3748@panthers.greenville.edu",
+            "role":         "Author"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Gamespace\\": "src"
+        }
+    },
+    "require": {
+        "cboden/ratchet": "^0.4.1"
+    }
+}

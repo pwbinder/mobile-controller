@@ -1,0 +1,169 @@
+/* Controller */
+body {
+ 	margin: 0;
+}
+
+#player {
+    
+    overflow: hidden;
+	position:relative;
+    background-size: 100% 100%;
+    width:100vw;
+    height:100vw;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+  }
+  @media screen and (orientation: portrait) {
+      #controller {
+        display: none;
+      }
+      .rotateDevice{
+          position: fixed;
+          z-index: 999;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+          background: url('../images/mobile/mobileBackground.png') no-repeat;        background-size: 100% 100%;
+      }
+  }
+  @media screen and (orientation: landscape) {
+      .rotateDevice{
+        display: none;
+      }
+      body {
+        height: 100vh;
+      }
+      #player {
+        height: 100vh
+      }
+      #controller {
+        /* background: url('../images/mobile/mobileBackground.png') no-repeat; */
+        height:100vh;
+        width:100vw;
+        position: absolute;
+      }
+      #controllerName {
+        display:block;
+        width: 25vw;
+        height:15vh;
+        z-index: 100;
+        text-align: center;
+        font: inherit;
+        margin: auto;
+      }
+      #controllerName p {
+        font-size: 25px;
+      }
+      #backgroundImage {
+        z-index: -100;
+        max-width: 100%;
+        max-height: auto;
+        position: absolute;
+      }
+      .joystickPad {
+        width:50%;
+        height:100%;
+        float:left;
+      }
+      #joystick {
+        /* background: url('../images/mobileImages/spritesheet.png') 0 0; */
+        /* transform: scale(.5); */
+        width:40vw;
+        height:auto;
+        left: 3vw;
+        /* margin: auto; */
+        top: 6vh;
+        /* background-color: red; */
+        position: absolute;
+      }
+      #joystick img {
+        max-width: 100%;
+        height: auto;
+      }
+      #userTouch {
+        width: 10vw;
+        height: auto;
+        position: absolute;
+        /* text-align: center; */
+        /* vertical-align: middle; */
+        /* display: block;*/
+       
+        z-index: 999;
+      }
+      #userTouch img {
+        /* top: 0;
+        left: 0; */
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+        z-index: 1000;
+      }
+      #button {
+        width:50%;
+        height:100%;
+        float:left;
+      }
+      #button1 {
+        width:40vw;
+        height:auto;
+        top: 6vh;
+        right: 3vw;
+        float: right;
+        position: absolute;
+      }
+      #button1 img {
+        max-width: 100%;
+      }
+  }
+  .rotate {
+    width:100%;
+    height:100%;
+    position: relative;
+    top:75%;
+    left:50%;
+    margin-left:-125px;
+    margin-top: -110px;
+	
+    background: url('../images/mobile/rotatesquare.png') no-repeat;
+  }
+  input {
+    font-size: 2.5em;
+    align-content: center;
+    font-family: 'Dosis', sans-serif;
+    color:black;
+    width:100%;
+    background-color:wheat;;
+    margin-bottom: 10px;
+	margin-left: 10%;
+    width:280px;
+    height:70px;
+	margin-top: 2%;
+  }
+  ::-webkit-input-placeholder {
+	align-content: center;
+    font-family: 'Dosis', sans-serif;
+    color:black;
+  }
+  
+  :-moz-placeholder { /* Firefox 18- */
+	align-content: center;
+    font-family: 'Dosis', sans-serif;
+    color:black;
+  }
+  
+  ::-moz-placeholder {  /* Firefox 19+ */
+	align-content: center;
+     font-family: 'Dosis', sans-serif;
+     color:black;
+  }
+  
+  :-ms-input-placeholder {
+	align-content: center;
+    font-family: 'Dosis', sans-serif;
+    color:black;
+  }

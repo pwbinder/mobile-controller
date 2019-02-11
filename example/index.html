@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8">
+  <title>Pizza Game</title>
+  <style>* {padding: 0; margin: 0}</style>
+  <body>
+  <script src="../../pixi/pixi.min.js"></script>
+  <script src"mask-render-texture.js"></script>
+
+  <script>
+  //Aliases
+  let Application = PIXI.Application,
+      Container = PIXI.Container,
+      loader = PIXI.loader,
+      resources = PIXI.loader.resources,
+      TextureCache = PIXI.utils.TextureCache,
+      Sprite = PIXI.Sprite;
+
+var app = new PIXI.Application({width: 800, height: 600 });
+document.body.appendChild(app.view);
+var stage = app.stage;
+
+//prepare circle texture, that will be our brush
+var brush = new PIXI.Graphics();
+brush.beginFill(0xffffff);
+brush.drawCircle(0, 0, 25);
+brush.endFill();
+
+PIXI.loader.add("t1", "grass.png")
+PIXI.loader.add("t2", "dirt.png")
+PIXI.loader.add("t3", "cow.png")
+//
+PIXI.loader.load(setup);
+
+let cat,state;
+
+function setup(loader, resources) {
+ 
+     var background = new PIXI.Sprite(resources["t1"].texture);
+    stage.addChild(background);
+    background.width = app.screen.width;
+    background.height = app.screen.height;
+
+    var imageToReveal = new PIXI.Sprite(resources["t2"].texture)
+    stage.addChild(imageToReveal);
+	imageToReveal.width = app.screen.width;
+    imageToReveal.height = app.screen.height;
+
+    var renderTexture = PIXI.RenderTexture.create(app.screen.width, app.screen.height);
+
+    var renderTextureSprite = new PIXI.Sprite(renderTexture);
+    stage.addChild(renderTextureSprite);
+    imageToReveal.mask = renderTextureSprite;
+
+
+    cat = new PIXI.Sprite(resources["t3"].texture)
+    cat.x = 96;
+    cat.y = 96;
+    cat.width = 120;
+    cat.height = 90;
+        app.stage.addChild(cat);
+
+    app.stage.interactive = true;
+    app.stage.on('pointerdown', pointerDown);
+    app.stage.on('pointerup', pointerUp);
+    app.stage.on('pointermove', pointerMove);
+
+    var dragging = false;
+
+    function pointerMove(event) {
+        if (dragging) {
+            brush.position.copy(cat);
+            app.renderer.render(brush, renderTexture, false, null, false);
+        }
+    }
+
+    function pointerDown(event) {
+        dragging = true;
+        pointerMove(event);
+    }
+
+    function pointerUp(event) {
+        dragging = false;
+    }
+
+// end of mask render texture
+
+// movement
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+        cat.y -= 5;
+        dragging = true;
+        pointerMove(event);
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        cat.y += 5;
+        dragging = true;
+        pointerMove(event);
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+       cat.x -= 5;
+       dragging = true;
+        pointerMove(event);
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+       cat.x += 5;
+       dragging = true;
+       pointerMove(event);
+    }
+
+}
+
+// end of setup 
+
+}
+checkKey();
+
+    </script>
+  </body>
+</html>

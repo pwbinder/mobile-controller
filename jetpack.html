@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script src="js/games/jetpack3.js"></script>
+<br>
+<button onmousedown="accelerate(players[0],-5)" onmousedown="accelerate(players[0],0)">JUMP</button>
+<button onmousedown="accelerate(players[1],-0.5)" onmouseup="accelerate(players[1],0.05)">PLAYER TWO</button>
+<button onmousedown="moveRight(players[0], 5);"  onmouseup="moveRight(players[0],0)">RIGHT</button>
+<button onmousedown="moveLeft(players[0], 5);"  onmouseup="moveLeft(players[0],0)">LEFT</button>
+<p>Use the ACCELERATE button to stay in the air</p>
+<p>How long can you stay alive?</p>
+</body>
+</html>
