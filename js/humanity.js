@@ -1,4 +1,4 @@
-var gameUrl = 'ws://greenvilledm.com:8081';
+var gameUrl = 'ws://greenvilledm.com:8081'; //TODO: Change to correct url
 var mainTheme = document.getElementById("mainTheme");
 
 
@@ -34,7 +34,7 @@ window.onload = function() {
       $('#host').show();
       userType = "host";
     }
-  } //btw we tested this and it works
+  }
 
 function connectToGame() {
     
@@ -46,9 +46,6 @@ function connectToGame() {
         case "host":
           var host = new Host(gameUrl);
           $('#play').on('click', function() {
-			mainTheme.play();
-			mainTheme.append();
-
 
             //generate the room number
             var roomId = makeId();

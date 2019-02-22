@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <!-- <link rel="stylesheet" href="css/humanity.css" type='text/css'/> -->
       <link rel="stylesheet" href="css/player.css" type='text/css'/>
-      <link rel="stylesheet" href="css/host.css" type='text/css'/>
+      <!-- <link rel="stylesheet" href="css/host.css" type='text/css'/> -->
       <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
       <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 	    <link rel="preload" as="video" href="images/titleSequence.mp4">
@@ -53,11 +53,15 @@
               
               <div class="connectInstructions"> <!-- changed from instructions-->
                   
-                <div id="folderImages">
+                <!-- TODO: Remove
+                  <div id="folderImages">
                 <img id="website" src="images/instruct.png">
                 <img id="website" src="images/link.png">
                 <img id="website" src="images/qrcode.png">
-                </div>
+                </div> -->
+                <h1>Welcome to Pete-Sketch</h1>
+                <p>To play, connect to pwbinder.com/pete-sketch 
+                  and enter the following code. Each room can hold up to 6 people.</p>
 
                 <div id="startGame" style="display:none"> <!-- added this-->
                   <h1>Everyone's in! </h1>
@@ -82,11 +86,7 @@
                   </div>
                 </div>     
               </div>
-
-              
-
             </div>
-
         </div>
 
         <!-- this will appear before each mini game -->
@@ -152,7 +152,7 @@
     <script type="text/javascript" src="js/host.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
-  <!-- End of js files -->
+    <!-- End of js files -->
     
     <!-- Game Files -->
     <script type="text/javascript" src="js/games/testSprites.js"></script>
