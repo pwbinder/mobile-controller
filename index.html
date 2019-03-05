@@ -8,10 +8,8 @@
       <!-- <link rel="stylesheet" href="css/humanity.css" type='text/css'/> -->
       <link rel="stylesheet" href="css/player.css" type='text/css'/>
       <!-- <link rel="stylesheet" href="css/host.css" type='text/css'/> -->
-      <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-      <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-	    <link rel="preload" as="video" href="images/titleSequence.mp4">
-
+      <link rel="stylesheet" href="css/style.css" type='text/css'/>  
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <script src="../pixi/pixi.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -46,14 +44,15 @@
      
             <div id="getCode"  style="display:none">
               
-              <div class="connectInstructions"> <!-- changed from instructions-->
+              <div class="instructions"> <!-- changed from instructions-->
                 
-                <h1 class='instructions'>Welcome to Pete-Sketch</h1>
-                <p class='instructions'>To play, connect to pwbinder.com/pete-sketch 
+                <h1 class='instructions-content'>Welcome to Pete-Sketch</h1>
+                <p class='instructions-content'>To play, connect to pwbinder.com/pete-sketch 
                   and enter the following code. Each room can hold up to 6 people.</p>
-                <div id="code" class='instructions'></div>
+                <div id="code" class='instructions-content'></div>
 
-                <div id="startGame" style="display:none"> <!-- added this-->
+                <!-- old log in page
+                  <div id="startGame" style="display:none">
                   <h1>Everyone's in! </h1>
 				
                   <button id='startGameButton'>Start</button>
@@ -66,15 +65,10 @@
                 </div>
 
                 <div class = "column">
-                  <p>Now enter the following code</p>
-                  
-                </div>
-
-                <div class = "column">
                   <div id="playerListRight">
                     <p> </p>
                   </div>
-                </div>     
+                </div>      -->
               </div>
             </div>
         </div>
@@ -86,10 +80,6 @@
     <!-- This section contains the canvas and is visible when the game starts -->
     <section id="game"  style="display:none">
     </section>
-
-		<div class = "video" style="display:none">
-			<video id = "introVideo" preload="auto" src="images/titleSequence.mp4"> type="video/mp4"</video>
-		</div>
 
     <!-- This section is visible on the mobile device -->
     <section id="player" style="display:none">
