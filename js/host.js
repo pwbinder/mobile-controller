@@ -123,9 +123,6 @@ class Host {
            $('#startGame').on('click', function() {
                 //document.body.appendChild(dinnerTime.view);
                 $('#host').hide();
-                //the video should go here
-
-				}
 
                 // $('#game').show();
                 // $('#game').append(dinnerTime.view);
@@ -135,7 +132,7 @@ class Host {
                 // if (ready) {
                 //     start();
                 //     count = 30;
-                // }
+                //}
            });
 
         };
