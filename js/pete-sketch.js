@@ -51,7 +51,7 @@ function connectToGame() {
             var roomId = makeId();
             host.hostGame(roomId);
             $('#menu').hide();
-            $('#getCode').show();
+            $('#instructions-wrap').show();
             $('<p>'+roomId+'</p>').appendTo('#code');
             
             //launchFullscreen on the whole page
@@ -60,7 +60,7 @@ function connectToGame() {
 
           $('#return-to-menu').on('click', function() {
             $('#menu').show();
-            $('#getCode').hide();
+            $('#instructions-wrap').hide();
             $('#game-canvas').hide();
           });
           
