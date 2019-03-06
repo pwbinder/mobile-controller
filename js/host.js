@@ -14,11 +14,6 @@ class Host {
      */
     hostGame(roomId) {
         var conn = new WebSocket(gameUrl);
-        //var roomMembers = 0;
-        //var roomMembers = []; //experimental
-		var newPlayer = document.getElementById("newPlayer");
-		var mainTheme = document.getElementById("mainTheme");
-		var gameTheme = document.getElementById("gameTheme");
 
         conn.onopen = function() {
 
@@ -57,19 +52,6 @@ class Host {
 
                         $('<p class="username-list-item">'+userName+'</p>').appendTo('#user-list');
 
-                        //TODO: remove
-                        //the first three members are appended to the left
-                        // if (roomMembers.length <= 3) {
-                        //     console.log("New Player: " +userName);
-                        //     displayUserJoinedGame(userName, "#playerListLeft");
-                        //     //roomMembers++;
-
-                        // //the last three are appended to the right
-                        // } else if (roomMembers.length <= 6) {
-                        //     console.log("New Player: " +userName);
-                        //     displayUserJoinedGame(userName, "#playerListRight");
-                        //     //roomMembers++;
-                        // }
                         break;
 
                     case 'user-act':
@@ -139,20 +121,9 @@ class Host {
                 $('#startGame').show();
             }
            $('#startGame').on('click', function() {
-                mainTheme.pause();
                 //document.body.appendChild(dinnerTime.view);
                 $('#host').hide();
                 //the video should go here
-				 $('.video').show();
-				mainTheme.pause();
-
-				 var introVideo = document.getElementById("introVideo");
-				 introVideo.play();
-                
-				introVideo.onended = function(){
-                		startGame();
-					gameTheme.play();
-                     gameTheme.append();
 
 				}
 
