@@ -12,7 +12,6 @@ window.onload = function() {
   };
   
   //detects what type of device is accessing the page
-  //this is genius omg i didnt know it was possible
   function detectDevice() {
 
       //if one of these mobile devices
