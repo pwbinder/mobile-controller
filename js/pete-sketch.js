@@ -57,6 +57,12 @@ function connectToGame() {
             //launchFullscreen on the whole page
             //launchFullScreen(document.documentElement);
           });
+
+          $('#return-to-menu').on('click', function() {
+            $('#menu').show();
+            $('#getCode').hide();
+            $('#game-canvas').hide();
+          });
           
           break;
 
