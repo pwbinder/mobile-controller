@@ -1,8 +1,6 @@
 var velX = 0;
 var velY = 0;
-
 var ready = false;
-
 var roomMembers = [];
 
 class Host {
@@ -10,12 +8,9 @@ class Host {
     constructor(gameUrl) {
         
     }
-
-    /**
-     * 
+    /** 
      * Opens up the connection with the server
      * Listens for incoming messages from the server
-     * 
      */
     hostGame(roomId) {
         var conn = new WebSocket(gameUrl);
@@ -60,18 +55,21 @@ class Host {
 						newPlayer.play();
                         newPlayer.append();
 
-                        //the first three members are appended to the left
-                        if (roomMembers.length <= 3) {
-                            console.log("New Player: " +userName);
-                            displayUserJoinedGame(userName, "#playerListLeft");
-                            //roomMembers++;
+                        $('<p class="username-list-item">'+userName+'</p>').appendTo('#user-list');
 
-                        //the last three are appended to the right
-                        } else if (roomMembers.length <= 6) {
-                            console.log("New Player: " +userName);
-                            displayUserJoinedGame(userName, "#playerListRight");
-                            //roomMembers++;
-                        }
+                        //TODO: remove
+                        //the first three members are appended to the left
+                        // if (roomMembers.length <= 3) {
+                        //     console.log("New Player: " +userName);
+                        //     displayUserJoinedGame(userName, "#playerListLeft");
+                        //     //roomMembers++;
+
+                        // //the last three are appended to the right
+                        // } else if (roomMembers.length <= 6) {
+                        //     console.log("New Player: " +userName);
+                        //     displayUserJoinedGame(userName, "#playerListRight");
+                        //     //roomMembers++;
+                        // }
                         break;
 
                     case 'user-act':
