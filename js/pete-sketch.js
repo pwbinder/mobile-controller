@@ -55,7 +55,7 @@ function connectToGame() {
             $('<p>'+roomId+'</p>').appendTo('#code');
             
             //launchFullscreen on the whole page
-            launchFullScreen(document.documentElement);
+            //launchFullScreen(document.documentElement);
           });
           
           break;
