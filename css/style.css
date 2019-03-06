@@ -3,7 +3,13 @@ body {
     font-family: 'Roboto';
 }
 
-.instructions {
+.instructions-content {
     display: inline-block;
     margin: 5px 2px;
+}
+
+.top-menu-item {
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
 }
