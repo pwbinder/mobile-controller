@@ -30,7 +30,7 @@ window.onload = function() {
       $('#player').show(); //show the player div
       $('#connect').show();
       userType = "player"; 
-    }else{
+    } else {
       $('#host').show();
       userType = "host";
     }
