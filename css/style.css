@@ -1,11 +1,14 @@
 body {
     margin: 0;
     font-family: 'Roboto';
+    height: 100vh;
+    overflow: hidden;
 }
 
 #instructions-wrap {
     box-shadow: 0px 0px 5px black;
     padding: 0px 10px;
+    height: 9vh;
 }
 
 .instructions-content {
@@ -17,4 +20,15 @@ body {
     display: inline-block;
     text-decoration: none;
     list-style: none;
+}
+
+#sketch-canvas {
+    width: 100vw;
+    height: 83vh;
+}
+
+#user-list {
+    width: 100%;
+    height: 6vh;
+    background-color: red;
 }

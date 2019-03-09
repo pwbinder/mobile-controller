@@ -43,6 +43,12 @@ function connectToGame() {
             $('#instructions-wrap').show();
             $('<p>'+roomId+'</p>').appendTo('#code');
             
+            $('#sketch-canvas').show();
+            resetCanvasSize();
+            $('#user-list').show();
+
+            
+            
             //launchFullscreen on the whole page
             //launchFullScreen(document.documentElement);
           });
