@@ -1,11 +1,10 @@
-var gameUrl = 'ws://greenvilledm.com:8081'; //TODO: Change to correct url
+var gameUrl = 'ws://localhost:8081'; //TODO: Change to correct url
 
 //device type used for the switch
 var userType;
 
 //host variables
 var roomMembers = 0;
-
 
 //detects what type of device is accessing the page
 function detectDevice() {
@@ -30,6 +29,7 @@ function connectToGame() {
 
         case "host":
           var host = new Host(gameUrl);
+
           $('#play').on('click', function() {
 
             //generate the room number
@@ -43,8 +43,6 @@ function connectToGame() {
             resetCanvasSize();
             $('#user-list').show();
 
-            
-            
             //launchFullscreen on the whole page
             //launchFullScreen(document.documentElement);
           });

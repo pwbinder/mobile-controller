@@ -47,9 +47,6 @@ class Host {
                         roomMembers.push(userName);
                         console.log(roomMembers);
 
-						newPlayer.play();
-                        newPlayer.append();
-
                         $('<p class="username-list-item">'+userName+'</p>').appendTo('#user-list');
 
                         break;
