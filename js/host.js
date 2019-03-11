@@ -41,8 +41,11 @@ class Host {
 
                     //display the user on the 'getCode' screen
                     case 'user-joined-room':
+
+                        //get user name
                         var userName = data.from.name;
                         console.log(roomMembers.length);
+
                         //add the username to the roomMembers array
                         roomMembers.push(userName);
                         console.log(roomMembers);
