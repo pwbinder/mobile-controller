@@ -6,24 +6,20 @@ var userType;
 //host variables
 var roomMembers = 0;
 
-window.onload = function() {
-    detectDevice();
-    connectToGame();
-  };
-  
-  //detects what type of device is accessing the page
-  function detectDevice() {
 
-      //if one of these mobile devices
-    if(  /Android|webOS|iPhone|iPod|BlackBerry|iPad/i.test(navigator.userAgent) ){
-      $('#player').show(); //show the player div
-      $('#connect').show();
-      userType = "player"; 
-    } else {
-      $('#host').show();
-      userType = "host";
-    }
+//detects what type of device is accessing the page
+function detectDevice() {
+
+    //if one of these mobile devices
+  if(  /Android|webOS|iPhone|iPod|BlackBerry|iPad/i.test(navigator.userAgent) ){
+    $('#player').show(); //show the player div
+    $('#connect').show();
+    userType = "player"; 
+  } else {
+    $('#host').show();
+    userType = "host";
   }
+}
 
 function connectToGame() {
     
