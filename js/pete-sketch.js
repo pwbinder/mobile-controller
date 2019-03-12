@@ -10,26 +10,38 @@ function setup() {
     sketchCanvas.style('margin','0');
     console.log(sketchWidth);
     console.log(sketchHeight);
+    detectDevice();
+    connectToGame();
 }
 
 function draw() {
     background(0);
-
     
+
+
 }
 
-function Cursor(cursorW, cursorH, cursorColor, cursorX, cursorY) {
-    this.name;
-    this.type = type;
-    this.cursorW = cursorW;
-    this.cursorH = cursorH;
-    this.speedX = 0;
-    this.speedY = 0;
-    this.cursorX = cursorX;
-    this.cursorY = cursorY;
+class Cursor {
     
-    this.update = function() {
+    constructor(cursorX, cursorYcursorW, cursorH, cursorColor) {
+        this.name;
+        this.type = type;
+        this.cursorW = cursorW;
+        this.cursorH = cursorH;
+        this.speedX = 0;
+        this.speedY = 0;
+        this.cursorX = cursorX;
+        this.cursorY = cursorY;
+    }
     
+    display() {
+        rectMode(CENTER);
+        fill(this.cursorC);
+        rect(this.cursorX, this.cursorY, this.cursorW, this.cursorH);
+    }
+
+    move() {
+        
     }
 }
 

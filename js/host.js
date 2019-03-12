@@ -19,7 +19,6 @@ class Host {
 
             //send the host's information  to the server
             var params = {
-                //temporarily changed from roomId
                 'roomId':roomId, //make random roomID string
                 'userName': 'host',
                 'action': 'connect'
