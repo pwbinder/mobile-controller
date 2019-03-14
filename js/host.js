@@ -139,6 +139,11 @@ class Host {
         conn.onerror = function(e) {
             console.log(e);
         };
+
+        $('#return-to-menu').on('click', function() {
+            conn.close();
+            $('#code').empty();
+        });
     
         return false;
     }
