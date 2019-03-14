@@ -120,18 +120,7 @@ class Host {
                 $('#startGame').show();
             }
            $('#startGame').on('click', function() {
-                //document.body.appendChild(dinnerTime.view);
                 $('#host').hide();
-
-                // $('#game').show();
-                // $('#game').append(dinnerTime.view);
-                //dinnerTime.ticker.add(delta => gameLoop(delta));
-                //setupDinnerTime();
-                //ready = true;
-                // if (ready) {
-                //     start();
-                //     count = 30;
-                //}
            });
 
         };
@@ -140,6 +129,8 @@ class Host {
             console.log(e);
         };
 
+
+        //when the quit link is clicked, close connection and reset gamecode
         $('#return-to-menu').on('click', function() {
             conn.close();
             $('#code').empty();
@@ -147,16 +138,6 @@ class Host {
     
         return false;
     }
-
-    
-
-    initGame() {
-        //this is probably where we will start the game?
-        //we'll cross this bridge when we get there
-    }
-
-    //use this later
-   
 }
 
 //display username to divs on each side of the room code
