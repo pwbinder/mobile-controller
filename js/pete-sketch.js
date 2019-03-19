@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    //background(0);
     
 
 
@@ -23,25 +23,32 @@ function draw() {
 
 class Cursor {
     
-    constructor(cursorX, cursorYcursorW, cursorH, cursorColor) {
+    constructor(cursorX, cursorY, cursorW, cursorH, cursorColor) {
         this.name;
-        this.type = type;
+        //this.type = type;
         this.cursorW = cursorW;
         this.cursorH = cursorH;
         this.speedX = 0;
         this.speedY = 0;
         this.cursorX = cursorX;
         this.cursorY = cursorY;
+        this.cursorColor = cursorColor;
+        this.pCursorX = cursorX;
+        this.pCursorY = cursorY;
     }
     
     display() {
-        rectMode(CENTER);
-        fill(this.cursorC);
+        fill(this.cursorColor);
         rect(this.cursorX, this.cursorY, this.cursorW, this.cursorH);
     }
 
-    move() {
-        
+    move(velX, velY) {
+        this.cursorX += velX;
+        this.cursorY += velY;
+    }
+
+    paint() {
+        line(this.pCursorX, this.pCursorY, this.cursorX, this.cursorY);
     }
 }
 

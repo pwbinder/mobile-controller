@@ -42,34 +42,52 @@ class Host {
                     case 'user-joined-room':
 
                         //get user name
-                        var userName = data.from.name;
+                        var username = data.from.name;
                         console.log(roomMembers.length);
 
                         //add the username to the roomMembers array
-                        roomMembers.push(userName);
+                        roomMembers.push(username);
                         console.log(roomMembers);
 
-                        $('<p class="username-list-item">'+userName+'</p>').appendTo('#user-list');
+                        $('<p class="username-list-item">'+username+'</p>').appendTo('#user-list');
+
+                        username = new Cursor(
+                            random(sketchWidth), //random x loc
+                            random(sketchHeight), //random y loc
+                            10, 10, //width, height
+                            color(random(255),random(255),random(255)) //random color
+                        );
+                        username.display();
+
+                        
 
                         break;
 
                     case 'user-act':
-                        console.log(data.from.name + ": action!");
+
+                        var username = data.from.name;
+
+                        console.log(username + ": action!");
                         /**
                          * Sprite function goes here
                          */
-                        for (var i = 0; i < players.length; i++) {
-                            if (players[i].name == data.from.name) {
-                                console.log(players[i].name + " is moving.");
-                                //move(players[i], newVelX, newVelY);
-                                speak(players[i]);
-                            }
-                        }
+                        
+                        console.log(username.cursorX, username.cursorY);
+                        //username.paint();
+
+                        // for (var i = 0; i < players.length; i++) {
+                        //     if (players[i].name == data.from.name) {
+                        //         console.log(players[i].name + " is moving.");
+                        //         //move(players[i], newVelX, newVelY);
+                        //         speak(players[i]);
+                        //     }
+                        // }
                         break;
 
                     case 'user-move':
                         var newVelX;
                         var newVelY;
+                        var username = data.from.name;
 
                         if (data.velX > 20) {
                             newVelX = 1;
@@ -91,7 +109,12 @@ class Host {
                             newVelY = 0;
                         }
                         
+                        //save old location value for drawing
+                        username.cursorX = username.pCursorX;
+                        username.cursorY = username.pCursorY;
                         
+                        username.move(newVelX, newVelY);
+
 
                         for (var i = 0; i < players.length; i++) {
                             if (players[i].name == data.from.name) {
