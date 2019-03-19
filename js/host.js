@@ -36,6 +36,7 @@ class Host {
 
             //read the packet types and act accordingly
             if (data.hasOwnProperty('type')) {
+
                 switch(data.type) {
 
                     //display the user on the 'getCode' screen
@@ -48,6 +49,7 @@ class Host {
                         //add the username to the roomMembers array
                         roomMembers.push(username);
                         console.log(roomMembers);
+                        
 
                         $('<p class="username-list-item">'+username+'</p>').appendTo('#user-list');
 
@@ -57,7 +59,11 @@ class Host {
                             10, 10, //width, height
                             color(random(255),random(255),random(255)) //random color
                         );
+
+                        username == window.username;
+
                         username.display();
+                        console.log(username);
 
                         
 
@@ -72,8 +78,8 @@ class Host {
                          * Sprite function goes here
                          */
                         
-                        console.log(username.cursorX, username.cursorY);
-                        //username.paint();
+                        console.log(username);
+                        window.username.paint();
 
                         // for (var i = 0; i < players.length; i++) {
                         //     if (players[i].name == data.from.name) {
@@ -110,10 +116,10 @@ class Host {
                         }
                         
                         //save old location value for drawing
-                        username.cursorX = username.pCursorX;
-                        username.cursorY = username.pCursorY;
+                        window.username.cursorX = window.username.pCursorX;
+                        window.username.cursorY = window.username.pCursorY;
                         
-                        username.move(newVelX, newVelY);
+                        window.username.move(newVelX, newVelY);
 
 
                         for (var i = 0; i < players.length; i++) {
