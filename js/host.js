@@ -37,6 +37,8 @@ class Host {
             //read the packet types and act accordingly
             if (data.hasOwnProperty('type')) {
 
+                var members = new Array();
+
                 switch(data.type) {
 
                     //display the user on the 'getCode' screen
@@ -44,28 +46,26 @@ class Host {
 
                         //get user name
                         var username = data.from.name;
+                        var userColor = color(random(255),random(255),random(255));
                         console.log(roomMembers.length);
 
                         //add the username to the roomMembers array
                         roomMembers.push(username);
                         console.log(roomMembers);
-                        
 
+                        //add to the user list at the bottom of the screen
                         $('<p class="username-list-item">'+username+'</p>').appendTo('#user-list');
 
-                        username = new Cursor(
+                        //create new cursor on the screen at random location
+                        roomMembers[username] = new Cursor(
                             random(sketchWidth), //random x loc
                             random(sketchHeight), //random y loc
                             10, 10, //width, height
-                            color(random(255),random(255),random(255)) //random color
+                            userColor //random color
                         );
-
-                        username == window.username;
-
-                        username.display();
-                        console.log(username);
-
                         
+                        //add user to the screen
+                        roomMembers[username].display();
 
                         break;
 
@@ -74,20 +74,10 @@ class Host {
                         var username = data.from.name;
 
                         console.log(username + ": action!");
-                        /**
-                         * Sprite function goes here
-                         */
                         
-                        console.log(username);
-                        window.username.paint();
-
-                        // for (var i = 0; i < players.length; i++) {
-                        //     if (players[i].name == data.from.name) {
-                        //         console.log(players[i].name + " is moving.");
-                        //         //move(players[i], newVelX, newVelY);
-                        //         speak(players[i]);
-                        //     }
-                        // }
+                        //roomMembers[username].paint();
+                        
+                        console.log(roomMembers[username]);
                         break;
 
                     case 'user-move':
@@ -116,18 +106,19 @@ class Host {
                         }
                         
                         //save old location value for drawing
-                        window.username.cursorX = window.username.pCursorX;
-                        window.username.cursorY = window.username.pCursorY;
+                        //window.username.cursorX = window.username.pCursorX;
+                        //window.username.cursorY = window.username.pCursorY;
                         
-                        window.username.move(newVelX, newVelY);
+                        //window.username.move(newVelX, newVelY);
 
+                        console.log(window.username);
 
-                        for (var i = 0; i < players.length; i++) {
-                            if (players[i].name == data.from.name) {
-                                console.log(players[i].name + " is moving.");
-                                move(players[i], newVelX, newVelY);
-                            }
-                        }
+                        // for (var i = 0; i < players.length; i++) {
+                        //     if (players[i].name == data.from.name) {
+                        //         console.log(players[i].name + " is moving.");
+                        //         move(players[i], newVelX, newVelY);
+                        //     }
+                        // }
      
 
                         break;
