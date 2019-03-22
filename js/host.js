@@ -75,7 +75,7 @@ class Host {
 
                         console.log(username + ": action!");
                         
-                        //roomMembers[username].paint();
+                        roomMembers[username].paint();
                         
                         console.log(roomMembers[username]);
                         break;
@@ -84,7 +84,8 @@ class Host {
                         var newVelX;
                         var newVelY;
                         var username = data.from.name;
-
+                        
+                        //map Y Axis controller values
                         if (data.velX > 20) {
                             newVelX = 1;
                         } else
@@ -95,6 +96,7 @@ class Host {
                             newVelX = 0;
                         }
 
+                        //map Y Axis controller values
                         if (data.velY > 20) {
                             newVelY = 1;
                         } else
@@ -106,21 +108,12 @@ class Host {
                         }
                         
                         //save old location value for drawing
-                        //window.username.cursorX = window.username.pCursorX;
-                        //window.username.cursorY = window.username.pCursorY;
+                        roomMembers[username].pCursorX = roomMembers[username].cursorX;
+                        roomMembers[username].pCursorY = roomMembers[username].cursorY;
                         
-                        //window.username.move(newVelX, newVelY);
-
-                        console.log(window.username);
-
-                        // for (var i = 0; i < players.length; i++) {
-                        //     if (players[i].name == data.from.name) {
-                        //         console.log(players[i].name + " is moving.");
-                        //         move(players[i], newVelX, newVelY);
-                        //     }
-                        // }
-     
-
+                        //move cursor and display in new position
+                        roomMembers[username].move(newVelX, newVelY);
+                        roomMembers[username].display();
                         break;
 
                 default: 
