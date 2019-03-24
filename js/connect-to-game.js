@@ -43,6 +43,9 @@ function connectToGame() {
             resetCanvasSize();
             $('#user-list').show();
 
+            //set background color
+            background(255);
+            
             //launchFullscreen on the whole page
             //launchFullScreen(document.documentElement);
           });

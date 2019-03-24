@@ -8,16 +8,12 @@ function setup() {
     var sketchCanvas = createCanvas(sketchWidth, sketchHeight);
     sketchCanvas.parent("sketch-canvas");
     sketchCanvas.style('margin','0');
-    console.log(sketchWidth);
-    console.log(sketchHeight);
+    
     detectDevice();
     connectToGame();
 }
 
 function draw() {
-    //background(255);
-    
-
 
 }
 

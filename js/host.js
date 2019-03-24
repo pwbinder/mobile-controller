@@ -113,7 +113,13 @@ class Host {
                         
                         //move cursor and display in new position
                         roomMembers[username].move(newVelX, newVelY);
+                        
+                        //reset background
+                        background(255);
+
+                        //display user at new location
                         roomMembers[username].display();
+
                         break;
 
                 default: 
