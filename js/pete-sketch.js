@@ -35,6 +35,7 @@ class Cursor {
     
     display() {
         fill(this.cursorColor);
+        rectMode(CENTER);
         rect(this.cursorX, this.cursorY, this.cursorW, this.cursorH);
     }
 
@@ -44,7 +45,9 @@ class Cursor {
     }
 
     paint() {
+        strokeWeight(10);
         line(this.pCursorX, this.pCursorY, this.cursorX, this.cursorY);
+        strokeWeight(1);
     }
 }
 
