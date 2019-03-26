@@ -14,7 +14,8 @@ function setup() {
 }
 
 function draw() {
-
+    //background(255);
+    //connectToGame();
 }
 
 class Cursor {
@@ -44,10 +45,30 @@ class Cursor {
         this.cursorY += velY;
     }
 
-    paint() {
+    paint(lineNo) {
         strokeWeight(10);
-        line(this.pCursorX, this.pCursorY, this.cursorX, this.cursorY);
+        paintings[lineNo] = new Painting(
+            this.cursorX,
+            this.cursorY,
+            this.pCursorX,
+            this.pCursorY
+        );
         strokeWeight(1);
+    }
+}
+
+//lines drawn are stored into this class
+class Painting {
+
+    constructor(x, y, pX, pY) {
+        this.x = x;
+        this.y = y;
+        this.pX = pX;
+        this.pY = pY;
+    }
+
+    display() {
+        line(this.x, this.y, this.pX, this.pY);
     }
 }
 

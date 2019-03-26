@@ -3,8 +3,13 @@ var velY = 0;
 var ready = false;
 var roomMembers = [];
 
+lineNo = 0; //used for name of the paintings array
+paintings = new Array(); //store lines drawn here
+
 class Host {
     
+    
+
     constructor(gameUrl) {
         
     }
@@ -75,8 +80,15 @@ class Host {
 
                         console.log(username + ": action!");
                         
-                        roomMembers[username].paint();
-                        
+                        //create a new line, increment the lineNo
+                        roomMembers[username].paint(lineNo);
+                        lineNo++;
+
+                        //display lines
+                        for (var i = 0; i < paintings.length; i++) {
+                            paintings[i].display();
+                        }
+
                         console.log(roomMembers[username]);
                         break;
 
@@ -120,6 +132,11 @@ class Host {
                         //display user at new location
                         roomMembers[username].display();
 
+                        //display lines
+                        for (var i = 0; i < paintings.length; i++) {
+                            paintings[i].display();
+                        }
+
                         break;
 
                 default: 
@@ -131,13 +148,6 @@ class Host {
             /**
              * Game progression
              */
-
-            //room members start at zero, stop adding at 6
-            //if room members reach 6, start the game
-            if (roomMembers.length === 6) {
-                $('#folderImages').hide();
-                $('#startGame').show();
-            }
            $('#startGame').on('click', function() {
                 $('#host').hide();
            });

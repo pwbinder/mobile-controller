@@ -35,6 +35,7 @@ function connectToGame() {
             //generate the room number
             var roomId = makeId();
             host.hostGame(roomId);
+            
             $('#menu').hide();
             $('#instructions-wrap').show();
             $('<p>'+roomId+'</p>').appendTo('#code');
