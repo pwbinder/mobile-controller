@@ -1,7 +1,6 @@
-var velX = 0;
-var velY = 0;
 var ready = false;
 var roomMembers = [];
+var username;
 
 lineNo = 0; //used for name of the paintings array
 paintings = new Array(); //store lines drawn here
@@ -50,7 +49,7 @@ class Host {
                     case 'user-joined-room':
 
                         //get user name
-                        var username = data.from.name;
+                        username = data.from.name;
                         var userColor = color(random(255),random(255),random(255));
                         console.log(roomMembers.length);
 
@@ -76,7 +75,7 @@ class Host {
 
                     case 'user-act':
 
-                        var username = data.from.name;
+                        username = data.from.name;
 
                         console.log(username + ": action!");
                         
@@ -93,49 +92,39 @@ class Host {
                         break;
 
                     case 'user-move':
-                        var newVelX;
-                        var newVelY;
-                        var username = data.from.name;
+                        username = data.from.name;
                         
                         //map Y Axis controller values
                         if (data.velX > 20) {
                             newVelX = 1;
+                            isMovingX = true;
                         } else
                         if (data.velX < -20) {
                             newVelX = -1;
+                            isMovingX = true;
                         } else
                         if (data.velX <= 20 || data.velX >= -20) {
                             newVelX = 0;
+                            isMovingX = false;
                         }
 
                         //map Y Axis controller values
                         if (data.velY > 20) {
                             newVelY = 1;
+                            isMovingY = true;
                         } else
                         if (data.velY < -20) {
                             newVelY = -1;
+                            isMovingY = true;
                         } else 
                         if (data.velY >= -20 || data.velY <= 20) {
                             newVelY = 0;
+                            isMovingY = false;
                         }
                         
                         //save old location value for drawing
                         roomMembers[username].pCursorX = roomMembers[username].cursorX;
                         roomMembers[username].pCursorY = roomMembers[username].cursorY;
-                        
-                        //move cursor and display in new position
-                        roomMembers[username].move(newVelX, newVelY);
-                        
-                        //reset background
-                        background(255);
-
-                        //display user at new location
-                        roomMembers[username].display();
-
-                        //display lines
-                        for (var i = 0; i < paintings.length; i++) {
-                            paintings[i].display();
-                        }
 
                         break;
 

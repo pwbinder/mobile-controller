@@ -2,6 +2,14 @@ var canvasDiv = document.getElementById('sketch-canvas');
 var sketchWidth = canvasDiv.offsetWidth;
 var sketchHeight  = canvasDiv.offsetHeight;
 
+//values for each cursor
+var velX = 0;
+var velY = 0;
+var newVelX;
+var newVelY;
+var isMovingX;
+var isMovingY;
+
 function setup() {
 
    
@@ -14,8 +22,25 @@ function setup() {
 }
 
 function draw() {
-    //background(255);
-    //connectToGame();
+
+    //if the cursor is moving, move cursor
+    if (isMovingX === true || isMovingY === true) {
+
+        //move cursor
+        roomMembers[username].move(newVelX, newVelY);
+
+        //reset background
+        background(255);
+
+        //display user at new location
+        roomMembers[username].display();
+        
+        //display lines
+        for (var i = 0; i < paintings.length; i++) {
+            paintings[i].display();
+        }
+    }
+    
 }
 
 class Cursor {
