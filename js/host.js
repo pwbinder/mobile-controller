@@ -51,11 +51,9 @@ class Host {
                         //get user name
                         username = data.from.name;
                         var userColor = color(random(255),random(255),random(255));
-                        console.log(roomMembers.length);
 
                         //add the username to the roomMembers array
                         roomMembers.push(username);
-                        console.log(roomMembers);
 
                         //add to the user list at the bottom of the screen
                         $('<p class="username-list-item">'+username+'</p>').appendTo('#user-list');

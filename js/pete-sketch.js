@@ -33,7 +33,13 @@ function draw() {
         background(255);
 
         //display user at new location
-        roomMembers[username].display();
+        // for (var i = 0; i < roomMembers.length; i++) {
+        //     roomMembers[i].display();
+        // }
+        roomMembers.forEach(function(item){
+            console.log(item);
+            roomMembers[item].display();
+        });
         
         //display lines
         for (var i = 0; i < paintings.length; i++) {
