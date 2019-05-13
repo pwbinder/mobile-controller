@@ -49,8 +49,7 @@ class Player {
             if (data.type === 'user-joined-room' && 
                 data.from.name === 'testPlayer[' + (testPlayers.length - 1) + ']' ) {
                 console.log('switching modes...')
-                testState = 'move';
-                testPeteSketch();
+                testPeteSketch('move');
             }
         };
         conn.onclose = function(e) {

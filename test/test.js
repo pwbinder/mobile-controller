@@ -3,9 +3,7 @@ var gameUrl = 'ws://localhost:8081';
 var testPlayers = [];
 var conn = [];
 
-var testState = 'connect';
-
-function testPeteSketch() {
+function testPeteSketch(testState) {
     
 
     amountOfPlayers = document.getElementById('players').value;
@@ -31,8 +29,6 @@ function testPeteSketch() {
         case 'move' :
             console.log('Testing movement...');
             var testMovement = 50;
-            console.log(amountOfPlayers);
-
             var xModifier = 1;
             var yModifier = 1;
 
@@ -40,33 +36,49 @@ function testPeteSketch() {
 
                 for(var j = 0; j < 50; j++) {
 
+                    //after 5-10 loops, change direction
                     if (j % 5 === 0) {
                         xModifier = xModifier*-1;
                     }
                     if (j % 10 === 0) {
                         yModifier = yModifier*-1;
                     }
-
-                    // sendVelocityMessage('testPlayer[' + i + ']',testMovement,0,conn[i]);
                     sendVelocityMessage('testPlayer[' + i + ']',testMovement*xModifier,testMovement*yModifier,conn[i]);
-                    // sendVelocityMessage('testPlayer[' + i + ']',0,testMovement,conn[i]);
-                    // sendVelocityMessage('testPlayer[' + i + ']',-testMovement,testMovement,conn[i]);
-                    // sendVelocityMessage('testPlayer[' + i + ']',-testMovement,0,conn[i]);
-                    // sendVelocityMessage('testPlayer[' + i + ']',-testMovement,-testMovement,conn[i]);
-                    // sendVelocityMessage('testPlayer[' + i + ']',0,-testMovement,conn[i]);
                 }
+
+                //stop the cursor
                 sendVelocityMessage('testPlayer[' + i + ']',0,0,conn[i]);
                 
             }
             console.log('Movement Successful');
+            testPeteSketch('draw');
             break;
 
 
         case 'draw' :
             console.log('Testing drawing...');
-            //test drawing with movement
+            var testMovement = 50;
+            var xModifier = 1;
+            var yModifier = 1;
+
             for(var i = 0; i < amountOfPlayers; i++) {
 
+                sendButtonMessage('testPlayer[' + i + ']',"true", conn[i]);
+                for(var j = 0; j < 50; j++) {
+
+                    //after 5-10 loops, change direction
+                    if (j % 5 === 0) {
+                        xModifier = xModifier*-1;
+                    }
+                    if (j % 10 === 0) {
+                        yModifier = yModifier*-1;
+                    }
+                    sendVelocityMessage('testPlayer[' + i + ']',testMovement*xModifier,testMovement*yModifier,conn[i]);
+                }
+
+                //stop the cursor
+                sendVelocityMessage('testPlayer[' + i + ']',0,0,conn[i]);
+                sendButtonMessage('testPlayer[' + i + ']',"false", conn[i]);
             }
             console.log('Drawing Successful');
             break;
@@ -75,5 +87,5 @@ function testPeteSketch() {
 }
 
 $('#test-form-submit').click(function() {
-    testPeteSketch();   
+    testPeteSketch('connect');   
 });
